@@ -1,0 +1,27 @@
+<%= form_with(model: option_value_variation, local: true) do |form| %>
+  <% if option_value_variation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(option_value_variation.errors.count, "error") %> prohibited this option_value_variation from being saved:</h2>
+
+      <ul>
+      <% option_value_variation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :optionValue_id %>
+    <%= form.text_field :optionValue_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :variation_id %>
+    <%= form.text_field :variation_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Option Value Variations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Optionvalue</th>
+      <th>Variation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @option_value_variations.each do |option_value_variation| %>
+      <tr>
+        <td><%= option_value_variation.optionValue %></td>
+        <td><%= option_value_variation.variation %></td>
+        <td><%= link_to 'Show', option_value_variation %></td>
+        <td><%= link_to 'Edit', edit_option_value_variation_path(option_value_variation) %></td>
+        <td><%= link_to 'Destroy', option_value_variation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Option Value Variation', new_option_value_variation_path %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @product.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<% @product.variations.each do |v| %>
+  <p>
+    <strong>Sku:</strong>
+    <%= v.sku %>
+  </p>
+  
+  <p>
+    <strong>Quantity:</strong>
+    <%= v.quantity %>
+  </p>
+  
+  <p>
+    <strong>Price:</strong>
+    <%= v.price %>
+  </p>
+
+  
+  <% v.option_values.each do |ov| %>
+    <p>
+      <strong><%= ov.option.name %></strong>
+      <%= ov.name %>
+    </p>
+  <% end %>
+<% end %>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

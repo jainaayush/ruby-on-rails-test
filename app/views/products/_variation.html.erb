@@ -1,0 +1,21 @@
+<div class="field">
+  <%= f.label :sku %>
+  <%= f.text_field :sku %>
+</div>
+
+<div class="field">
+  <%= f.label :quantity %>
+  <%= f.text_field :quantity %>
+</div>
+
+<div class="field">
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+</div>
+
+<% Option.all.each do |option| %>
+  <div class="field">
+    <%= f.label option.name %>
+    <%= f.collection_select(:option_value_ids, option.option_values, :id, :name, {prompt: true}, {name: "product[variations_attributes][#{f.index}][option_value_ids][]"})  %>  
+  </div>
+<% end %>
